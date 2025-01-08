@@ -1,0 +1,26 @@
+<div>
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped center-text">
+            <thead>
+                <tr>
+                    <th>שכר יסוד לפי חלקיות משרה</th>
+                    <th>שיעור תוספת וותק באחוזים</th>
+                    <th>סה"כ תוספת וותק לשכר</th>
+                    <th>סה"כ תוספת עבודה מתוקף מינוי בחוק</th>
+                    <th>סה"כ שכר בסיס לפני העלאה</th>
+                    <th>שיעור העלאת שכר באחוזים</th>
+                    <th>סה"כ תוספת העלאת שכר </th>
+                    <th>סה"כ שכר בסיס לאחר העלאה</th>
+                </tr>
+            </thead>
+            <tr class="center-text">
+                <td *ngFor="let value of salaryData">{{ value }}</td>
+            </tr>
+        </table>
+
+        <a routerLink="/form">חישוב חדש</a>
+
+    </div>
+
+</div>

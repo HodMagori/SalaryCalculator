@@ -1,0 +1,76 @@
+<div>
+    <u>יש למלא את הטופס הבא: </u>
+
+    <div>
+        <form #SalaryForm="ngForm" class="w-50 mx-auto" (ngSubmit)="onSubmit(SalaryForm)">
+            <div class="mb-3">
+                <label for="options" class="form-label">אנא בחר את חלקיות המשרה: </label>
+
+                <select class="form-select" id="options_jobType" [(ngModel)]="formData.jobType" name="jobType">
+                    <option selected disabled>בחר מהרשימה: </option>
+                    <option value="50">50%</option>
+                    <option value="70">70%</option>
+                    <option value="100">100%</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="options" class="form-label">רמה מקצועית:</label>
+                <select class="form-select" id="options_experience" [(ngModel)]="formData.experience" name="experience">
+                    <option value="junior">מתחיל</option>
+                    <option value="senior">מנוסה</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="options" class="form-label">רמה ניהולית: </label>
+                <select class="form-select" id="options" [(ngModel)]="formData.administrationLevel"
+                    name="administrationLevel">
+                    <option value="0">ללא</option>
+                    <option value="1">רמת ניהול 1</option>
+                    <option value="2">רמת ניהול 2</option>
+                    <option value="3">רמת ניהול 3</option>
+                    <option value="4">רמת ניהול 4</option>
+                </select>
+            </div>
+            <div>
+                <label for="yearsOfExperience">שנות וותק</label> &nbsp;
+                <input id="yearsOfExperience" name="yearsOfExperience" type="number" min="0" class="w-25"
+                    [(ngModel)]="formData.yearsOfExperience" />
+                <br />
+                <br />
+            </div>
+            <div>
+                <div class="form-check form-switch mb-3">
+                    <label class="form-check-label">זכאי לתוספת עבודה (על פי חוק)</label>
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="isExtraWork"
+                        name="extrawork">
+                </div>
+                <div *ngIf="isExtraWork">
+                    <div class="form-check w-50">
+                        <input type="radio" class="form-check-input" id="radio1" name="ExtraWorkTeam"
+                            [(ngModel)]="formData.ExtraWorkTeam" value="A">
+                        <label class="form-check-label" for="radio1">קבוצה א'</label>
+                    </div>
+                    <div class="form-check w-50">
+                        <input type="radio" class="form-check-input" id="radio2" name="ExtraWorkTeam"
+                            [(ngModel)]="formData.ExtraWorkTeam" value="B">
+                        <label class="form-check-label" for="radio2">קבוצה ב'</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button 
+            type="submit" 
+            class="btn btn-success" 
+            [disabled]="isSubmitting">
+            <span *ngIf="!isSubmitting">חשב את השכר שלי</span>
+            <span *ngIf="isSubmitting">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                מחשב...
+            </span>
+        </button>
+        
+        </form>
+    </div>
+</div>
