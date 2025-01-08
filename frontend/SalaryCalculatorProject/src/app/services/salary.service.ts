@@ -17,14 +17,14 @@ export class SalaryService {
     this.http.post(this.url, UserInputData, { observe: "response" }).
       subscribe({
 
-        next: (res) => {              //saving response in local variable
-          this.salary_res = res.body;
+        next: (res) => {              
+          this.salary_res = res.body;//saving response in local variable
           console.log(this.salary_res)
-          this.router.navigate(['/results'])
+          this.router.navigate(['/results'])//nav to results component to view data
 
         },
         error: (err) => {
-          
+          //catch errors
           alert("An error occurred. Please make sure the server is running and try again.");
           console.error(err)
         },

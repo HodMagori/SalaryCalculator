@@ -13,7 +13,7 @@ export class ResultsDataComponent {
 
   salaryData: number[] = [];
   
-
+  //load data from server
   ngOnInit() {
     this.load_user_data();
   }
